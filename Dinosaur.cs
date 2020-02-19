@@ -14,5 +14,7 @@ namespace JurassicPark
     public int Weight { get; set; }
     //  EnclosureNumber - the Pen that the dinosaur is currently in, thing should be a number
     public int EnclosureNumber { get; set; }
+    // Unique ID
+    public int ID {get;set;}
   }
 }

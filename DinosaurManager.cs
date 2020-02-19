@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace JurassicPark
 {
@@ -7,15 +8,18 @@ namespace JurassicPark
   {
     public List<Dinosaur> Dinosaurs { get; set; } = new List<Dinosaur>();
 
+    public int IDCounter { get; set; } = 0;
     // View
     public void View()
     {
       // Dinosaurs.Sort((x, y) => DateTime.Compare(x.DateAcquired, y.DateAcquired));
+      Console.WriteLine("");
       foreach (var d in Dinosaurs)
       {
+        Console.WriteLine($"ID:              {d.ID}");
         Console.WriteLine($"Name:            {d.Name}");
         Console.WriteLine($"Diet Type:       {d.DietType}");
-        Console.WriteLine($"Date Acquired:   {d.DateAcquired}");
+        Console.WriteLine($"Date Acquired:   {d.DateAcquired.ToString("dd MMMM HH:mm")}");
         Console.WriteLine($"Weight:          {d.Weight}");
         Console.WriteLine($"Encloser Number: {d.EnclosureNumber}");
         Console.WriteLine("");
@@ -35,6 +39,8 @@ namespace JurassicPark
       Console.WriteLine("Encloser Number:");
       var enclosureNumber = int.Parse(Console.ReadLine());
 
+      IDCounter++;
+
       var dino = new Dinosaur()
       {
         Name = name,
@@ -42,6 +48,7 @@ namespace JurassicPark
         DateAcquired = dateAcquired,
         Weight = weight,
         EnclosureNumber = enclosureNumber,
+        ID = IDCounter
       };
       Dinosaurs.Add(dino);
 
@@ -49,7 +56,13 @@ namespace JurassicPark
     // Remove
     public void Remove()
     {
-      Console.WriteLine("Remove");
+      Console.WriteLine("Which Dinosaur would you like to remove (enter ID#)");
+      View();
+      var userInput = int.Parse(Console.ReadLine());
+
+      var dinoToRemove = Dinosaurs.First(dino => dino.ID == userInput);
+      Dinosaurs.Remove(dinoToRemove);
+
     }
     // Transfer
     public void Transfer()
