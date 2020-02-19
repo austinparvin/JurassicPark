@@ -10,11 +10,10 @@ namespace JurassicPark
 
     public int IDCounter { get; set; } = 0;
     // View
-    public void View()
+    public void View(List<Dinosaur> list)
     {
-      // Dinosaurs.Sort((x, y) => DateTime.Compare(x.DateAcquired, y.DateAcquired));
-      Console.WriteLine("");
-      foreach (var d in Dinosaurs)
+     Console.WriteLine("");
+      foreach (var d in list)
       {
         Console.WriteLine($"ID:              {d.ID}");
         Console.WriteLine($"Name:            {d.Name}");
@@ -49,13 +48,14 @@ namespace JurassicPark
         EnclosureNumber = enclosureNumber,
         ID = IDCounter
       };
+
       Dinosaurs.Add(dino);
     }
     // Remove
     public void Remove()
     {
       Console.WriteLine("Which Dinosaur would you like to remove (enter ID#)");
-      View();
+      View(Dinosaurs);
       var userInput = int.Parse(Console.ReadLine());
 
       var dinoToRemove = Dinosaurs.First(dino => dino.ID == userInput);
@@ -66,9 +66,9 @@ namespace JurassicPark
     public void Transfer()
     {
       Console.WriteLine("Which Dinosaur would you like to Transfer (enter ID#)");
-      View();
+      View(Dinosaurs);
       var IDInput = int.Parse(Console.ReadLine());
-      
+
       Console.WriteLine("Which Enclosure Would you like to Tranfer them to?");
       var enclosureInput = int.Parse(Console.ReadLine());
 
@@ -77,7 +77,10 @@ namespace JurassicPark
     // Heaviest
     public void Heaviest()
     {
-      Console.WriteLine("Heaviest");
+      //this way we preserve data 
+      var topThreeHeaviest = Dinosaurs.OrderByDescending(item => item.Weight).Take(3).ToList();
+      View(topThreeHeaviest);
+     
     }
     // Diet Count
     public void DietCount()

@@ -19,7 +19,7 @@ namespace JurassicPark
         switch (userInput)
         {
           case "v":
-            d.View();
+            d.View(d.Dinosaurs);
             break;
           case "a":
             d.Add();
