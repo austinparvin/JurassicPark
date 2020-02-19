@@ -12,7 +12,7 @@ namespace JurassicPark
     // View
     public void View(List<Dinosaur> list)
     {
-     Console.WriteLine("");
+      Console.WriteLine("");
       foreach (var d in list)
       {
         Console.WriteLine($"ID:              {d.ID}");
@@ -29,8 +29,14 @@ namespace JurassicPark
     {
       Console.WriteLine("Name:");
       var name = Console.ReadLine();
-      Console.WriteLine("Diet Type:");
+      Console.WriteLine("Diet Type 'c' for carnivore 'h' for herbavoire:");
       var dietType = Console.ReadLine();
+      while (dietType != "h" && dietType != "c")
+      {
+        Console.WriteLine("I'm sorry, that is not a valid diet type.");
+        Console.WriteLine("Try Again");
+        dietType = Console.ReadLine().ToLower();
+      }
       var dateAcquired = DateTime.Now;
       Console.WriteLine("Weight:");
       var weight = int.Parse(Console.ReadLine());
@@ -80,12 +86,15 @@ namespace JurassicPark
       //this way we preserve data 
       var topThreeHeaviest = Dinosaurs.OrderByDescending(item => item.Weight).Take(3).ToList();
       View(topThreeHeaviest);
-     
+
     }
     // Diet Count
     public void DietCount()
     {
-      Console.WriteLine("Diet Count");
+      var totalHerb = Dinosaurs.Where(item => item.DietType.ToLower() == "c").Count();
+      var totalCarn = Dinosaurs.Where(item => item.DietType.ToLower() == "h").Count();
+      Console.WriteLine($"Herb: {totalHerb}");
+      Console.WriteLine($"Carn: {totalCarn}");
     }
   }
 }
