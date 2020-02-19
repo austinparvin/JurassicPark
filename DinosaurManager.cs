@@ -10,9 +10,15 @@ namespace JurassicPark
     // View
     public void View()
     {
+      // Dinosaurs.Sort((x, y) => DateTime.Compare(x.DateAcquired, y.DateAcquired));
       foreach (var d in Dinosaurs)
       {
-        Console.WriteLine("View");
+        Console.WriteLine($"Name:            {d.Name}");
+        Console.WriteLine($"Diet Type:       {d.DietType}");
+        Console.WriteLine($"Date Acquired:   {d.DateAcquired}");
+        Console.WriteLine($"Weight:          {d.Weight}");
+        Console.WriteLine($"Encloser Number: {d.EnclosureNumber}");
+        Console.WriteLine("");
       }
     }
     // Add
@@ -28,6 +34,7 @@ namespace JurassicPark
       var weight = int.Parse(Console.ReadLine());
       Console.WriteLine("Encloser Number:");
       var enclosureNumber = int.Parse(Console.ReadLine());
+
       var dino = new Dinosaur()
       {
         Name = name,
