@@ -12,13 +12,32 @@ namespace JurassicPark
     {
       foreach (var d in Dinosaurs)
       {
-        Console.WriteLine($"{d.Name}");
+        Console.WriteLine("View");
       }
     }
     // Add
     public void Add()
     {
-      Console.WriteLine("Add");
+
+      Console.WriteLine("Name:");
+      var name = Console.ReadLine();
+      Console.WriteLine("Diet Type:");
+      var dietType = Console.ReadLine();
+      var dateAcquired = DateTime.Now;
+      Console.WriteLine("Weight:");
+      var weight = int.Parse(Console.ReadLine());
+      Console.WriteLine("Encloser Number:");
+      var enclosureNumber = int.Parse(Console.ReadLine());
+      var dino = new Dinosaur()
+      {
+        Name = name,
+        DietType = dietType,
+        DateAcquired = dateAcquired,
+        Weight = weight,
+        EnclosureNumber = enclosureNumber,
+      };
+      Dinosaurs.Add(dino);
+
     }
     // Remove
     public void Remove()
