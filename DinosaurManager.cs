@@ -28,7 +28,6 @@ namespace JurassicPark
     // Add
     public void Add()
     {
-
       Console.WriteLine("Name:");
       var name = Console.ReadLine();
       Console.WriteLine("Diet Type:");
@@ -51,7 +50,6 @@ namespace JurassicPark
         ID = IDCounter
       };
       Dinosaurs.Add(dino);
-
     }
     // Remove
     public void Remove()
@@ -67,7 +65,14 @@ namespace JurassicPark
     // Transfer
     public void Transfer()
     {
-      Console.WriteLine("Transfer");
+      Console.WriteLine("Which Dinosaur would you like to Transfer (enter ID#)");
+      View();
+      var IDInput = int.Parse(Console.ReadLine());
+      
+      Console.WriteLine("Which Enclosure Would you like to Tranfer them to?");
+      var enclosureInput = int.Parse(Console.ReadLine());
+
+      Dinosaurs.First(dino => dino.ID == IDInput).EnclosureNumber = enclosureInput;
     }
     // Heaviest
     public void Heaviest()
