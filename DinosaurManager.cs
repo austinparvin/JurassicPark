@@ -97,8 +97,8 @@ namespace JurassicPark
     // Diet Count
     public void DietCount()
     {
-      var totalHerb = Dinosaurs.Where(item => item.DietType.ToLower() == "c").Count();
-      var totalCarn = Dinosaurs.Where(item => item.DietType.ToLower() == "h").Count();
+      var totalHerb = Dinosaurs.Count(item => item.DietType.ToLower() == "h");
+      var totalCarn = Dinosaurs.Count(item => item.DietType.ToLower() == "c");
       Console.WriteLine($"Herb: {totalHerb}");
       Console.WriteLine($"Carn: {totalCarn}");
     }
