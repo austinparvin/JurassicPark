@@ -33,7 +33,7 @@ namespace JurassicPark
       var dietType = Console.ReadLine();
       while (dietType != "h" && dietType != "c")
       {
-        Console.WriteLine("I'm sorry, that is not a valid diet type.");
+        Console.WriteLine("I'm sorry, that is not a input.");
         Console.WriteLine("Try Again");
         dietType = Console.ReadLine().ToLower();
       }
@@ -74,6 +74,13 @@ namespace JurassicPark
       Console.WriteLine("Which Dinosaur would you like to Transfer (enter ID#)");
       View(Dinosaurs);
       var IDInput = int.Parse(Console.ReadLine());
+      while (!Dinosaurs.Any(item => item.ID == IDInput))
+      {
+        Console.WriteLine("I'm sorry, that is not a valid input.");
+        Console.WriteLine("Try Again");
+        IDInput = int.Parse(Console.ReadLine());
+        Console.WriteLine(IDInput);
+      }
 
       Console.WriteLine("Which Enclosure Would you like to Tranfer them to?");
       var enclosureInput = int.Parse(Console.ReadLine());
