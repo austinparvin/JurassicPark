@@ -37,7 +37,6 @@ namespace JurassicPark
         Console.WriteLine("Try Again");
         dietType = Console.ReadLine().ToLower();
       }
-      var dateAcquired = DateTime.Now;
       Console.WriteLine("Weight:");
       var weight = int.Parse(Console.ReadLine());
       Console.WriteLine("Encloser Number:");
@@ -49,7 +48,6 @@ namespace JurassicPark
       {
         Name = name,
         DietType = dietType,
-        DateAcquired = dateAcquired,
         Weight = weight,
         EnclosureNumber = enclosureNumber,
         ID = IDCounter
@@ -73,6 +71,7 @@ namespace JurassicPark
     {
       Console.WriteLine("Which Dinosaur would you like to Transfer (enter ID#)");
       View(Dinosaurs);
+
       var IDInput = int.Parse(Console.ReadLine());
       while (!Dinosaurs.Any(item => item.ID == IDInput))
       {
