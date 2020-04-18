@@ -1,11 +1,15 @@
 # Jurassic Park
 
-a simple console application that help manages a zoo full of Dinosaurs. This app includes:
+a simple console application that help manages a zoo full of Dinosaurs. 
+
+## Includes:
 
 - [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
 - [LINQ](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/)
 - MVC design pattern
 
+# Featured Code
+## MVC Design pattern
 ```C#
 while (userInput != "q")
 {
