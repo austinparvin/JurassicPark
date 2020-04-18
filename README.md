@@ -6,7 +6,7 @@ a simple console application that help manages a zoo full of Dinosaurs.
 
 - [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
 - [LINQ](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/)
-- MVC design pattern
+- [MVC](https://dotnet.microsoft.com/apps/aspnet/mvc)
 
 # Featured Code
 ## MVC Design pattern
